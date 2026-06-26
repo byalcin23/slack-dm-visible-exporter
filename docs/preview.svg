@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">Slack DM Visible Exporter preview</title>
+  <desc id="desc">Mock preview of the floating Slack DM collector panel with anonymized example messages.</desc>
+  <rect width="1120" height="640" rx="24" fill="#0f1117"/>
+  <rect x="76" y="66" width="968" height="508" rx="18" fill="#1f2329" stroke="#4b5563" stroke-width="3"/>
+  <rect x="76" y="66" width="968" height="62" rx="18" fill="#24272e"/>
+  <path d="M76 128H1044" stroke="#4b5563" stroke-width="3"/>
+  <text x="102" y="105" fill="#f4f4f5" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Slack DM collector</text>
+  <text x="352" y="105" fill="#cbd5e1" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">Collecting</text>
+  <text x="846" y="105" fill="#f4f4f5" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">55 messages</text>
+  <rect x="96" y="148" width="928" height="332" fill="#111418"/>
+  <g font-family="Consolas, 'Courier New', monospace" font-size="22" font-weight="700">
+    <text x="118" y="190" fill="#f8fafc">[2026-06-19 10:51 AM] Example Person: Yep</text>
+    <text x="118" y="224" fill="#f8fafc">[2026-06-19 10:53 AM] Follow-up message</text>
+    <text x="118" y="258" fill="#f8fafc">[2026-06-21 11:03 AM] You: Updated the notes</text>
+    <text x="118" y="292" fill="#f8fafc">[2026-06-23 2:21 PM] Example Person: So it is scheduled</text>
+    <text x="118" y="326" fill="#f8fafc">[2026-06-23 2:21 PM] You: Yes, confirmed</text>
+    <text x="118" y="360" fill="#f8fafc">[2026-06-23 2:40 PM] You: Any update?</text>
+    <text x="118" y="394" fill="#f8fafc">[2026-06-23 2:41 PM] Example Person: Checking now</text>
+    <text x="118" y="428" fill="#f8fafc">[2026-06-23 2:43 PM] You: Thanks</text>
+  </g>
+  <rect x="1020" y="160" width="16" height="304" rx="8" fill="#2f343d"/>
+  <rect x="1020" y="196" width="16" height="74" rx="8" fill="#a1a1aa"/>
+  <rect x="96" y="480" width="928" height="74" fill="#24272e"/>
+  <path d="M96 480H1024" stroke="#4b5563" stroke-width="3"/>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">
+    <rect x="118" y="502" width="70" height="38" rx="8" fill="#343941" stroke="#6b7280" stroke-width="2"/>
+    <text x="135" y="527" fill="#f8fafc">Copy</text>
+    <rect x="204" y="502" width="150" height="38" rx="8" fill="#343941" stroke="#6b7280" stroke-width="2"/>
+    <text x="221" y="527" fill="#f8fafc">Pause/Resume</text>
+    <rect x="370" y="502" width="74" height="38" rx="8" fill="#343941" stroke="#6b7280" stroke-width="2"/>
+    <text x="388" y="527" fill="#f8fafc">Clear</text>
+    <rect x="460" y="502" width="74" height="38" rx="8" fill="#343941" stroke="#6b7280" stroke-width="2"/>
+    <text x="479" y="527" fill="#f8fafc">Close</text>
+  </g>
+</svg>
