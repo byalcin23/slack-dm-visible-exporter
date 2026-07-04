@@ -77,6 +77,10 @@ while you scroll instead of trying to read the whole conversation at once.
   const timePattern = /\b\d{1,2}:\d{2}\s?(AM|PM)\b/i;
 
   const getSlackTs = (el) => {
+    const msgTs = el.closest("[data-msg-ts]")?.getAttribute("data-msg-ts")
+      || el.querySelector("[data-msg-ts]")?.getAttribute("data-msg-ts");
+    if (msgTs && /^\d{10}\.\d{6}$/.test(msgTs)) return msgTs;
+
     const withTs = el.closest("[data-ts]") || el.querySelector("[data-ts]");
     const attrTs = withTs?.getAttribute("data-ts");
     if (attrTs && /^\d{10}\.\d{6}$/.test(attrTs)) return attrTs;
@@ -88,6 +92,14 @@ while you scroll instead of trying to read the whole conversation at once.
 
     return "";
   };
+
+  const messageContainerFor = (el) => el.closest([
+    '[data-qa="message_container"]',
+    "[data-msg-ts]",
+    '[data-feat="message"]',
+    ".c-message_kit__background",
+    ".c-virtual_list__item"
+  ].join(",")) || el;
 
   const dateFromSlackTs = (ts) => {
     if (!ts) return null;
@@ -163,6 +175,7 @@ while you scroll instead of trying to read the whole conversation at once.
     ].join(",")) || document;
 
     const selectors = [
+      "[data-msg-ts]",
       '[data-ts]',
       'a[href*="/archives/"][href*="/p"]',
       '[data-qa*="message"]',
@@ -170,7 +183,15 @@ while you scroll instead of trying to read the whole conversation at once.
       ".c-virtual_list__item"
     ];
 
+    const unique = new Set();
+
     return [...root.querySelectorAll(selectors.join(","))]
+      .map(messageContainerFor)
+      .filter((el) => {
+        if (unique.has(el)) return false;
+        unique.add(el);
+        return true;
+      })
       .filter((el) => clean(el.innerText || el.getAttribute("aria-label")))
       .filter((el, index, all) => {
         const firstContainer = all.findIndex((other) => other !== el && other.contains(el));
@@ -220,7 +241,10 @@ while you scroll instead of trying to read the whole conversation at once.
       if (!body) continue;
 
       const key = ts || `${date}|${time}|${author}|${body}`;
-      state.rows.set(key, { date, time, author, body, sort, key });
+      const existing = state.rows.get(key);
+      if (!existing || body.length >= existing.body.length) {
+        state.rows.set(key, { date, time, author, body, sort, key });
+      }
     }
 
     render();
